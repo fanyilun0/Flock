@@ -143,25 +143,25 @@ function install_train_node() {
     # 安装依赖
     pip install -r requirements.txt
     
-    # 获取必要信息
-    read -p "输入任务ID (TASK_ID): " TASK_ID
-    read -p "输入Flock API Key: " FLOCK_API_KEY
-    read -p "输入Hugging Face Token: " HF_TOKEN
-    read -p "输入Hugging Face 用户名: " HF_USERNAME
+#     # 获取必要信息
+#     read -p "输入任务ID (TASK_ID): " TASK_ID
+#     read -p "输入Flock API Key: " FLOCK_API_KEY
+#     read -p "输入Hugging Face Token: " HF_TOKEN
+#     read -p "输入Hugging Face 用户名: " HF_USERNAME
     
-    # 创建运行脚本
-    cat << EOF > run_training_node.sh
-#!/bin/bash
-source "$MINICONDA_PATH/bin/activate" training-node
-TASK_ID=$TASK_ID FLOCK_API_KEY="$FLOCK_API_KEY" HF_TOKEN="$HF_TOKEN" CUDA_VISIBLE_DEVICES=0 HF_USERNAME="$HF_USERNAME" python full_automation.py
-EOF
+#     # 创建运行脚本
+#     cat << EOF > run_training_node.sh
+# #!/bin/bash
+# source "$MINICONDA_PATH/bin/activate" training-node
+# TASK_ID=$TASK_ID FLOCK_API_KEY="$FLOCK_API_KEY" HF_TOKEN="$HF_TOKEN" CUDA_VISIBLE_DEVICES=0 HF_USERNAME="$HF_USERNAME" python full_automation.py
+# EOF
     
-    chmod +x run_training_node.sh
+#     chmod +x run_training_node.sh
     
-    # 使用 PM2 启动训练节点
-    pm2 start run_training_node.sh --name "flock-training-node" -- start && pm2 save && pm2 startup
+#     # 使用 PM2 启动训练节点
+#     pm2 start run_training_node.sh --name "flock-training-node" -- start && pm2 save && pm2 startup
     
-    echo "训练节点已启动。您可以使用 'pm2 logs flock-training-node' 查看日志。"
+#     echo "训练节点已启动。您可以使用 'pm2 logs flock-training-node' 查看日志。"
 }
 
 function update_task_id() {
