@@ -133,7 +133,7 @@ function install_train_node() {
     apt install curl sudo python3-venv iptables build-essential wget jq make gcc nano git -y
     
     # 克隆 QuickStart 仓库
-    git clone https://github.com/github/testnet-training-node-quickstart
+    git clone https://github.com/fanyilun0/testnet-training-node-quickstart.git
     cd testnet-training-node-quickstart
     
     # 创建并激活 conda 环境
